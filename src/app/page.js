@@ -18,7 +18,7 @@ const Home = () => {
         <div className="font-var(--font-space) font-bold text-xl tracking-tighter border-b border-black pb-2">
           (Kerrick <span className="italic font-var(--font-libre)">*Truong</span>)
             <br>
-          {new Date().toDateString();}
+          <span className="text-right">{new Date().toDateString()}</span>
         </div>
         
         <nav className="nav-menu">
