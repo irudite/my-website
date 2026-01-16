@@ -5,9 +5,9 @@ const Contact = () => {
       
       <div className="mb-8 group cursor-pointer">
         <ul className="font-var(font-libre) text-s text-gray-500 mb-1">
-          <li className="italic font-bold"><a mailto="kerricktruong@gmail.com">kerricktruong@gmail.com</a></li>
-          <li><a href="https://github.com/irudite">github.com/irudite</a></li>
-          <li><a href="https://www.linkedin.com/in/kerrick-truong/">linkedin.com/in/kerrick-truong</a></li>
+          <li className="italic font-bold"><a href="mailto:kerricktruong@gmail.com">kerricktruong@gmail.com</a></li>
+          <li><a href="https://github.com/irudite" target="_blank">github.com/irudite</a></li>
+          <li><a href="https://www.linkedin.com/in/kerrick-truong/" target="_blank">linkedin.com/in/kerrick-truong</a></li>
         </ul>
       </div>
     </div>

@@ -17,6 +17,8 @@ const Home = () => {
       <aside className="sidebar">
         <div className="font-var(--font-space) font-bold text-xl tracking-tighter border-b border-black pb-2">
           (Kerrick <span className="italic font-var(--font-libre)">*Truong</span>)
+            <br>
+          {new Date().toDateString();}
         </div>
         
         <nav className="nav-menu">
