@@ -1,17 +1,32 @@
-const Contact = () => {
-  return (
-    <div className="animate-in fade-in duration-500">
-      <h2 className="tech-font text-xl mb-8 border-b border-black pb-2">FIG_03: Contact Information</h2>
-      
-      <div className="mb-8 group cursor-pointer">
-        <ul className="font-var(font-libre) text-s text-gray-500 mb-1">
-          <li className="italic font-bold"><a href="mailto:kerricktruong@gmail.com">kerricktruong@gmail.com</a></li>
-          <li><a href="https://github.com/irudite" target="_blank">github.com/irudite</a></li>
-          <li><a href="https://www.linkedin.com/in/kerrick-truong/" target="_blank">linkedin.com/in/kerrick-truong</a></li>
-        </ul>
-      </div>
+const LINKS = [
+  { label: "Email", value: "kerricktruong@gmail.com", href: "mailto:kerricktruong@gmail.com" },
+  { label: "GitHub", value: "github.com/irudite", href: "https://github.com/irudite" },
+  { label: "LinkedIn", value: "linkedin.com/in/kerrick-truong", href: "https://www.linkedin.com/in/kerrick-truong/" },
+];
+
+const Contact = () => (
+  <div>
+    <p className="contact-intro">
+      Open to internships, research, and collaborative projects. Email is the
+      best way to reach me.
+    </p>
+
+    <div className="contact-links">
+      {LINKS.map((l) => (
+        <div key={l.label} className="contact-row">
+          <span className="contact-label">{l.label}</span>
+          <a
+            href={l.href}
+            target={l.href.startsWith("http") ? "_blank" : undefined}
+            rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            className="contact-value"
+          >
+            {l.value}
+          </a>
+        </div>
+      ))}
     </div>
-  );
-}
+  </div>
+);
 
 export default Contact;

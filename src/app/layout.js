@@ -1,38 +1,36 @@
-import { Geist, Geist_Mono, Libre_Baskerville, Space_Grotesk } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Clean, modern grotesque for display + body
+const geist = Geist({
   subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
+// Monospace for technical labels, nav, numbers, links
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const libre = Libre_Baskerville({
-  subsets: ['latin'],
-  variable: '--font-libre', 
-  display: 'swap',
-});
-
-const space = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space', 
-  display: 'swap',
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata = {
   title: "Kerrick Truong",
-  description: "My personal website",
+  description: "Computer Science student — systems & web.",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geist.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
