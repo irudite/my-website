@@ -9,12 +9,21 @@ const ROLES = [
     ],
   },
   {
+    period: "Jan 2026 — Now",
+    title: "System Software Engineer, Capstone",
+    org: "Intel",
+    points: [
+      "Optimizing RSA, SHA-256, and AES throughput on Intel QAT hardware accelerators with JNI bindings between a Java JCE provider and the QAT C API",
+      "Benchmarked QAT-offloaded vs. software RSA with JMH across 70+ configurations, measuring up to 1.7x throughput gains",
+    ],
+  },
+  {
     period: "Aug 2025 — Now",
     title: "Computer Science Teaching Assistant",
     org: "Lehigh University",
     points: [
-      "Mentor 50+ students across software engineering, computer architecture, and web development",
-      "Hold 15+ office hours weekly for one-on-one support",
+      "TA for Software Engineering (CSE 216), Computer Architecture (CSE 202), and Web Development (CSE 264)",
+      "Mentor 50+ students and hold 15+ office hours weekly for one-on-one support",
     ],
   },
   {

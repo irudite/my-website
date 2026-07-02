@@ -1,14 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-// Clean, modern grotesque for display + body
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-// Monospace for technical labels, nav, numbers, links
+// Monaco-style monospace for everything — headers, body, labels, nav
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
@@ -30,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geist.variable} ${geistMono.variable} antialiased`}
+        className={geistMono.variable}
       >
         {children}
       </body>

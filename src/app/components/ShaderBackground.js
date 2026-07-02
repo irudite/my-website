@@ -1,46 +1,36 @@
 "use client";
 
-import { ShaderGradientCanvas, ShaderGradient } from "@shadergradient/react";
+import { useEffect, useState } from "react";
+import { Dithering } from "@paper-design/shaders-react";
 
 /**
- * Full-screen navy-blue / purple shader gradient that subtly drifts behind the
- * whole site. lazyLoad off + pointerEvents off so it always renders and never
- * intercepts clicks.
+ * Full-screen 1-bit Bayer-dithered background — black ink on near-black,
+ * slowly warping. Grays are an illusion of dither density, like a 90s
+ * Macintosh screen. Freezes when the user prefers reduced motion.
  */
 export default function ShaderBackground() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(query.matches);
+    const onChange = (e) => setReducedMotion(e.matches);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
+
   return (
     <div className="shader-bg" aria-hidden>
-      <ShaderGradientCanvas
+      <Dithering
         style={{ width: "100%", height: "100%" }}
-        lazyLoad={false}
-        pointerEvents="none"
-        pixelDensity={1}
-        fov={42}
-      >
-        <ShaderGradient
-          control="props"
-          animate="on"
-          type="waterPlane"
-          uSpeed={0.16}
-          uStrength={1.5}
-          uDensity={1.4}
-          uFrequency={5}
-          uAmplitude={0}
-          color1="#262a33"
-          color2="#4c525f"
-          color3="#15161b"
-          grain="on"
-          lightType="3d"
-          brightness={1.05}
-          cAzimuthAngle={180}
-          cPolarAngle={115}
-          cDistance={3.4}
-          cameraZoom={1}
-          rotationX={50}
-          rotationY={0}
-          rotationZ={-60}
-        />
-      </ShaderGradientCanvas>
+        colorBack="#0a0a0a"
+        colorFront="#787878"
+        shape="warp"
+        type="8x8"
+        size={3.5}
+        scale={0.55}
+        speed={reducedMotion ? 0 : 0.25}
+      />
       <div className="shader-scrim" />
     </div>
   );

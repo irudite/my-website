@@ -64,8 +64,6 @@ const Home = () => {
                 variants={item}
                 initial="initial"
                 animate="animate"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.96 }}
               >
                 <motion.span
                   animate={{ opacity: [1, 0.4, 1] }}
@@ -91,8 +89,6 @@ const Home = () => {
                     className={`menu-btn ${view === m.id ? "active" : ""}`}
                     onClick={() => setView(m.id)}
                     variants={item}
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
                   >
                     <span className="menu-cursor">▶</span>
                     {m.label}
@@ -117,7 +113,10 @@ const Home = () => {
                         <p className="screen-lede">
                           Computer Science student working across systems and the web.
                         </p>
-                        <p className="screen-hint">Select a destination from the menu.</p>
+                        <p className="screen-hint">
+                          Select a destination from the menu.
+                          <span className="blink-cursor" aria-hidden>▮</span>
+                        </p>
                       </div>
                     )}
                     {view === "projects" && (
